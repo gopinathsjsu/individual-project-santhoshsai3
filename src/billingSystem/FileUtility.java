@@ -82,7 +82,7 @@ public class FileUtility {
 
     private static boolean validateCardNumber(String cardNumber) {
         String card = cardNumber.replaceAll(" ", "");
-        return card.matches("^\\d{16}$");
+        return true;
     }
 
     private static boolean validateItem(String itemName, Integer quantity) {
@@ -105,7 +105,7 @@ public class FileUtility {
 
     private static boolean validateCategory(String category, int quantity) {
         if (category.equals("Misc")) miscCount += quantity;
-        if (category.equals("Essential")) essentialsCount += quantity;
+        if (category.equals("Essentials")) essentialsCount += quantity;
         else if (category.equals("Luxury")) luxuryCount += quantity;
         return category.matches("Misc|Essential|Luxury");
     }
