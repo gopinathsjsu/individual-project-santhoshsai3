@@ -24,13 +24,13 @@ public class FileUtility {
             while ((row = reader.readLine()) != null) {
                 String[] data = row.split(",");
                 if (data.length >= 2 &&
-                    validateItem(data[0], Integer.parseInt(data[1])) &&
+                    validateItem(data[0].toLowerCase(), Integer.parseInt(data[1])) &&
                     validateQuantity(data[1])) {
                     if(data.length == 3 && card.isEmpty()&&  validateCardNumber(data[2])){
                         card = data[2];
                     }
                     if(!card.isEmpty()){
-                        items.add(new Item(data[0], Integer.parseInt(data[1]), card));
+                        items.add(new Item(data[0].toLowerCase(), Integer.parseInt(data[1]), card));
                     }
                     else{
                          System.out.println("Invalid input csv data");
@@ -55,7 +55,7 @@ public class FileUtility {
                 if (data.length == 4 && validateQuantity(data[2]) && validatePrice(data[3])) {
                     inventories.add(
                         new Inventory(
-                             data[1], data[0], Integer.parseInt(data[2]), Double.parseDouble(data[3])));
+                             data[1], data[0].toLowerCase(), Integer.parseInt(data[2]), Double.parseDouble(data[3])));
                 } else {
                     System.out.println("Invalid inventory dataset data");
                 }
