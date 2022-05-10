@@ -23,6 +23,9 @@ public class FileUtility {
             reader.readLine();
             while ((row = reader.readLine()) != null) {
                 String[] data = row.split(",");
+                if(row.startsWith("Evaluation")) {
+                	continue;
+                }
                 if (data.length >= 2 &&
                     validateItem(data[0].toLowerCase(), Integer.parseInt(data[1])) &&
                     validateQuantity(data[1])) {
